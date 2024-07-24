@@ -1,13 +1,13 @@
 {% set name = "fontmath" %}
-{% set version = "0.9.3" %}
+{% set version = "0.9.4" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/fontMath-{{ version }}.zip
-  sha256: 6a5387cb7feb105958db2f5ceedc878513cc35bf3715e262090f0557be0c1b1c
+  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.zip
+  sha256: 1fd9190c9d784e1305c3c49771b91d910f246a4b7c44ede219c99a07ed7aeda4
 
 build:
   noarch: python
