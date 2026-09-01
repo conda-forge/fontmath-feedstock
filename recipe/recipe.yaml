@@ -1,0 +1,47 @@
+schema_version: 1
+
+context:
+  name: fontmath
+  version: 0.10.0
+
+package:
+  name: ${{ name|lower }}
+  version: ${{ version }}
+
+source:
+  url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/${{ name }}-${{ version }}.tar.gz
+  sha256: 7b0b39336d83d7fc03fb9dc3c662ef7d26b2c15355a34c643d1cfbd03f89fb74
+
+build:
+  number: 1
+  noarch: python
+  script: ${{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
+
+requirements:
+  host:
+    - pip
+    - python ${{ python_min }}.*
+    - setuptools-scm
+    - setuptools
+  run:
+    - fonttools >=3.32.0
+    - python >=${{ python_min }}
+
+tests:
+  - python:
+      imports:
+        - fontMath
+      pip_check: true
+      python_version:
+        - ${{ python_min }}
+        - "*"
+
+about:
+  summary: A set of objects for performing math operations on font data.
+  license: MIT
+  license_file: License.txt
+  homepage: https://github.com/robotools/fontMath
+
+extra:
+  recipe-maintainers:
+    - jan-janssen
